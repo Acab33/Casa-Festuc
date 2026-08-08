@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Festuc | Cuina Casolana i de Muntanya</title>
+    <meta name="description" content="Restaurant Casa Festuc. Cuina de muntanya, tradicional i casolana en un entorn rústic acollidor.">
+    <!-- Google Fonts per estil rústic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark-green: #1B291E;
+            --forest-green: #2C3E2E;
+            --earth-brown: #4A3525;
+            --warm-brown: #6E473B;
+            --pistachio: #91A074;
+            --cream-bg: #F9F6F0;
+            --paper-card: #F2ECE1;
+            --text-dark: #2B231D;
+            --text-light: #EFE9E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .font-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section (100vh) */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(
+                rgba(27, 41, 30, 0.65), 
+                rgba(74, 53, 37, 0.75)
+            ), url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            color: #F4E8D1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            font-style: italic;
+            max-width: 600px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--warm-brown);
+            color: var(--text-light);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s;
+            border: 1px solid var(--pistachio);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--earth-brown);
+            transform: translateY(-2px);
+        }
+
+        /* NAVEGACIÓ */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-dark-green);
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pistachio);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover {
+            color: var(--pistachio);
+        }
+
+        /* SECCIONS GENERALS */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--earth-brown);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--pistachio);
+            margin: 10px auto 0;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--forest-green);
+            font-style: italic;
+            margin-bottom: 50px;
+        }
+
+        /* SOBRE NOSALTRES */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: 5px solid var(--paper-card);
+        }
+
+        /* CARTA / MENÚ */
+        .menu-category {
+            margin-bottom: 40px;
+            background-color: var(--paper-card);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--earth-brown);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .menu-category h3 {
+            color: var(--forest-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #D8CFC4;
+            padding-bottom: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .menu-item-info {
+            max-width: 80%;
+        }
+
+        .menu-item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .menu-item-desc {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .menu-item-price {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--warm-brown);
+            font-size: 1.1rem;
+        }
+
+        /* RESERVES */
+        .reservation-card {
+            background-color: var(--paper-card);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #E0D6C8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--earth-brown);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #C8BBB0;
+            border-radius: 4px;
+            background-color: #FFF;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .legal-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .legal-check input {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        /* CONTACTE I HORARIS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: var(--forest-green);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: var(--pistachio);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER & SECCIÓ LEGAL */
+        footer {
+            background-color: var(--bg-dark-green);
+            color: #B5A89B;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--earth-brown);
+        }
+
+        footer a {
+            color: var(--pistachio);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .legal-content {
+            background: var(--cream-bg);
+            color: var(--text-dark);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓ -->
+    <nav>
+        <a href="#" class="logo">Casa Festuc</a>
+        <ul>
+            <li><a href="#historia">Nosaltres</a></li>
+            <li><a href="#carta">La Carta</a></li>
+            <li><a href="#reserves">Reserves</a></li>
+            <li><a href="#contacte">Contacte</a></li>
+        </ul>
+    </nav>
+
+    <!-- PANTALLA INICIAL (HERO - 100vh) -->
+    <header class="hero">
+        <h1>Casa Festuc</h1>
+        <p>Cuina casolana, sabors de muntanya i caliu de la llar</p>
+        <a href="#reserves" class="btn">Reserva Taula</a>
+    </header>
+
+    <!-- SOBRE NOSALTRES -->
+    <section id="historia">
+        <h2 class="section-title">El Nostre Caliu</h2>
+        <p class="subtitle">Tradició familiar i productes de proximitat</p>
+        <div class="about-grid">
+            <div>
+                <p>A <strong>Casa Festuc</strong> entenem la cuina com una trobada al voltant del foc. Situats en un entorn natural privilegiat, el nostre restaurant conserva l'essència de les antigues masies i bordes de muntanya.</p>
+                <br>
+                <p>Treballem amb producte local, carns a la brasa, guisats fets a foc lent i receptes transmeses de generació en generació. Un espai càlid on cada plat té una història.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Menjador rústic de Casa Festuc">
+            </div>
+        </div>
+    </section>
+
+    <!-- LA CARTA -->
+    <section id="carta">
+        <h2 class="section-title">La Nostra Carta</h2>
+        <p class="subtitle">Elaborat amb ingredients de temporada i de la nostra terra</p>
+
+        <div class="menu-category">
+            <h3>Per Començar</h3>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Escudella i Carna d'Olla</div>
+                    <div class="menu-item-desc">Sopa tradicional amb galets farcits i verdura de l'hort.</div>
+                </div>
+                <div class="menu-item-price">12.50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Taula d'Embotits i Formatges de Muntanya</div>
+                    <div class="menu-item-desc">Acompanyada de pa de pagès amb tomàquet i festucs torrats.</div>
+                </div>
+                <div class="menu-item-price">16.00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Trinxat de la Cerdanya amb Casalta</div>
+                    <div class="menu-item-desc">Col d'hivern, patata i rosta de cansalada cruixent.</div>
+                </div>
+                <div class="menu-item-price">10.50 €</div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Plats Principals</h3>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Civet de Cérvol a les Herbes Rústiques</div>
+                    <div class="menu-item-desc">Estofat a foc lent amb vi negre i fruits del bosc.</div>
+                </div>
+                <div class="menu-item-price">18.50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Costellam del Pirineu a la Brasa</div>
+                    <div class="menu-item-desc">Amb patates caliu i allioli casoler de festuc.</div>
+                </div>
+                <div class="menu-item-price">19.00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Arròs de Mulla de Bosc i Bolets</div>
+                    <div class="menu-item-desc">Arròs sec amb bolets de temporada i carxofes.</div>
+                </div>
+                <div class="menu-item-price">17.00 €</div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Postres Casolanes</h3>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Pastís de Formatge amb Festuc i Mel</div>
+                    <div class="menu-item-desc">Elaboració pròpia amb formatge de fusta local.</div>
+                </div>
+                <div class="menu-item-price">6.50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-info">
+                    <div class="menu-item-title">Mel i Mató de la Casa</div>
+                    <div class="menu-item-desc">Amb nous i festucs garrapinyats.</div>
+                </div>
+                <div class="menu-item-price">5.50 €</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVES -->
+    <section id="reserves">
+        <h2 class="section-title">Reserva la teva Taula</h2>
+        <p class="subtitle">T'esperem amb el foc encès</p>
+
+        <div class="reservation-card">
+            <form id="booking-form" onsubmit="handleReserve(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nom i Cognoms *</label>
+                        <input type="text" id="name" required placeholder="Ex. Joan Garcia">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telèfon de Contacte *</label>
+                        <input type="tel" id="phone" required placeholder="Ex. 600 000 000">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Data *</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Torn *</label>
+                        <select id="time" required>
+                            <option value="">Selecciona hora</option>
+                            <option value="13:30">Dinar - 13:30 h</option>
+                            <option value="15:00">Dinar - 15:00 h</option>
+                            <option value="20:30">Sopar - 20:30 h</option>
+                            <option value="22:00">Sopar - 22:00 h</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Nombre de Comensals *</label>
+                    <select id="guests" required>
+                        <option value="1">1 persona</option>
+                        <option value="2" selected>2 persones</option>
+                        <option value="4">4 persones</option>
+                        <option value="6">6 persones</option>
+                        <option value="8+">Grup (+8 persones)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Observacions o Intoleràncies</label>
+                    <textarea id="notes" rows="3" placeholder="Alergies, seients per a infants, etc."></textarea>
+                </div>
+
+                <!-- COMPLIANCE RGPD MANDATORI -->
+                <div class="legal-check">
+                    <input type="checkbox" id="privacy" required>
+                    <label for="privacy">He llegit i accepto la <a href="#" onclick="openLegal('privadesa')">Política de Privadesa</a>. Les dades s'utilitzaran únicament per gestionar la reserva de la taula.</label>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Confirmar Sol·licitud de Reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACTE I HORARIS -->
+    <section id="contacte">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Ubicació i Contacte</h3>
+                <p>📍 Carretera de la Muntanya, Barri de Dalt, S/N</p>
+                <p>📞 973 00 00 00 / 600 00 00 00</p>
+                <p>✉️ reserves@casafestuc.cat</p>
+            </div>
+            <div class="contact-info">
+                <h3>Horari d'Obertura</h3>
+                <p><strong>Dimecres a Diumenge:</strong> 13:00 h - 16:30 h</p>
+                <p><strong>Divendres i Dissabtes:</strong> 20:00 h - 23:30 h</p>
+                <p><strong>Dilluns i Dimarts:</strong> Tancat per descans setmanal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEU DE PÀGINA (FOOTER) -->
+    <footer>
+        <p>&copy; 2026 Restaurant Casa Festuc. Tots els drets reservats.</p>
+        <p style="margin-top: 10px;">
+            <a href="#" onclick="openLegal('avis')">Avís Legal</a> | 
+            <a href="#" onclick="openLegal('privadesa')">Política de Privadesa</a> | 
+            <a href="#" onclick="openLegal('cookies')">Política de Cookies</a>
+        </p>
+    </footer>
+
+    <!-- MODAL TEXTOS LEGALS -->
+    <div id="legalModal" class="legal-modal">
+        <div class="legal-content">
+            <h3 id="modalTitle" style="margin-bottom: 15px;"></h3>
+            <div id="modalBody" style="font-size: 0.9rem;"></div>
+            <br>
+            <button class="btn" onclick="closeLegal()" style="padding: 8px 16px;">Tancar</button>
+        </div>
+    </div>
+
+    <script>
+        function handleReserve(e) {
+            e.preventDefault();
+            alert("Moltes gràcies! Hem rebut la teva sol·licitud de reserva a Casa Festuc. Et confirmarem la taula en breu per telèfon o correu.");
+            document.getElementById('booking-form').reset();
+        }
+
+        function openLegal(type) {
+            const modal = document.getElementById('legalModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            if (type === 'avis') {
+                title.innerText = "Avís Legal";
+                body.innerHTML = "<p><strong>Titular:</strong> Restaurant Casa Festuc S.L.<br><strong>NIF:</strong> B-12345678<br><strong>Adreça:</strong> C/ Muntanya S/N<br><strong>Correu:</strong> info@casafestuc.cat</p><p>En compliment de la LSSI-CE, aquest lloc web té com a finalitat oferir informació sobre els serveis gastronòmics de Casa Festuc.</p>";
+            } else if (type === 'privadesa') {
+                title.innerText = "Política de Privadesa";
+                body.innerHTML = "<p>En conformitat amb el RGPD, les dades facilitades al formulari de reserves seran tractades per Casa Festuc amb l'única finalitat de gestionar la reserva de la seva taula. No es cediran dades a tercers excepte per obligació legal. Pot exercir els seus drets d'accés, rectificació i supressió escrivint a reserves@casafestuc.cat.</p>";
+            } else if (type === 'cookies') {
+                title.innerText = "Política de Cookies";
+                body.innerHTML = "<p>Aquest lloc web utilitza únicament cookies tècniques essencials per al correcte funcionament de la pàgina i la gestió de les sol·licituds de reserva. No s'utilitzen cookies de tercers ni de rastreig amb fins publicitaris.</p>";
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function closeLegal() {
+            document.getElementById('legalModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
