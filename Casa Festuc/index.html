@@ -457,66 +457,68 @@
     </section>
 
     <!-- RESERVES -->
-    <section id="reserves">
-        <h2 class="section-title">Reserva la teva Taula</h2>
-        <p class="subtitle">T'esperem amb el foc encès</p>
+    <!-- RESERVES -->
+<section id="reserves">
+    <h2 class="section-title">Reserva la teva Taula</h2>
+    <p class="subtitle">T'esperem amb el foc encès</p>
 
-        <div class="reservation-card">
-            <form id="booking-form" action="https://formspree.io/f/xgawoypr" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nom i Cognoms *</label>
-                        <input type="text" id="name" required placeholder="Ex. Joan Garcia">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telèfon de Contacte *</label>
-                        <input type="tel" id="phone" required placeholder="Ex. 600 000 000">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="date">Data *</label>
-                        <input type="date" id="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Torn *</label>
-                        <select id="time" required>
-                            <option value="">Selecciona hora</option>
-                            <option value="13:30">Dinar - 13:30 h</option>
-                            <option value="15:00">Dinar - 15:00 h</option>
-                            <option value="20:30">Sopar - 20:30 h</option>
-                            <option value="22:00">Sopar - 22:00 h</option>
-                        </select>
-                    </div>
-                </div>
-
+    <div class="reservation-card">
+        <!-- CANVIA "EL_TEU_CODI" PEL TEU CODI DE FORMSPREE -->
+        <form id="booking-form" action="https://formspree.io/f/xgawoypr" method="POST">
+            <div class="form-row">
                 <div class="form-group">
-                    <label for="guests">Nombre de Comensals *</label>
-                    <select id="guests" required>
-                        <option value="1">1 persona</option>
-                        <option value="2" selected>2 persones</option>
-                        <option value="4">4 persones</option>
-                        <option value="6">6 persones</option>
-                        <option value="8+">Grup (+8 persones)</option>
+                    <label for="name">Nom i Cognoms *</label>
+                    <input type="text" id="name" name="Nom" required placeholder="Ex. Joan Garcia">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telèfon de Contacte *</label>
+                    <input type="tel" id="phone" name="Telefono" required placeholder="Ex. 600 000 000">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Data *</label>
+                    <input type="date" id="date" name="Data" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Torn *</label>
+                    <select id="time" name="Hora" required>
+                        <option value="">Selecciona hora</option>
+                        <option value="13:30">Dinar - 13:30 h</option>
+                        <option value="15:00">Dinar - 15:00 h</option>
+                        <option value="20:30">Sopar - 20:30 h</option>
+                        <option value="22:00">Sopar - 22:00 h</option>
                     </select>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="notes">Observacions o Intoleràncies</label>
-                    <textarea id="notes" rows="3" placeholder="Alergies, seients per a infants, etc."></textarea>
-                </div>
+            <div class="form-group">
+                <label for="guests">Nombre de Comensals *</label>
+                <select id="guests" name="Comensals" required>
+                    <option value="1">1 persona</option>
+                    <option value="2" selected>2 persones</option>
+                    <option value="4">4 persones</option>
+                    <option value="6">6 persones</option>
+                    <option value="8+">Grup (+8 persones)</option>
+                </select>
+            </div>
 
-                <!-- COMPLIANCE RGPD MANDATORI -->
-                <div class="legal-check">
-                    <input type="checkbox" id="privacy" required>
-                    <label for="privacy">He llegit i accepto la <a href="#" onclick="openLegal('privadesa')">Política de Privadesa</a>. Les dades s'utilitzaran únicament per gestionar la reserva de la taula.</label>
-                </div>
+            <div class="form-group">
+                <label for="notes">Observacions o Intoleràncies</label>
+                <textarea id="notes" name="Observacions" rows="3" placeholder="Alergies, seients per a infants, etc."></textarea>
+            </div>
 
-                <button type="submit" class="btn" style="width: 100%;">Confirmar Sol·licitud de Reserva</button>
-            </form>
-        </div>
-    </section>
+            <!-- COMPLIANCE RGPD MANDATORI -->
+            <div class="legal-check">
+                <input type="checkbox" id="privacy" name="Accepta_Privadesa" required>
+                <label for="privacy">He llegit i accepto la <a href="#" onclick="openLegal('privadesa')">Política de Privadesa</a>. Les dades s'utilitzaran únicament per gestionar la reserva de la taula.</label>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Confirmar Sol·licitud de Reserva</button>
+        </form>
+    </div>
+</section>
 
     <!-- CONTACTE I HORARIS -->
     <section id="contacte">
